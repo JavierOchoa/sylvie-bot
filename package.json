@@ -1,0 +1,23 @@
+{
+  "name": "sylvie-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "deploy-commands": "node deploy-commands.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.0.3",
+    "kazagumo": "^2.3.2",
+    "shoukaku": "^3.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.34.0"
+  }
+}
