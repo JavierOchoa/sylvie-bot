@@ -10,26 +10,24 @@ module.exports = {
 				.setDescription('Song to play')),
 	async execute(interaction, kazagumo) {
 		const media = interaction.options.getString('params');
-		const channelId = await interaction.member.voice.channelId;
+		const voiceChannelId = await interaction.member.voice.channelId;
 		let player = await kazagumo.getPlayer(interaction.guildId);
 
 		if (player && player.paused) {
 			player.pause(false);
 			return await interaction.reply('Playback resumed');
 		}
-
 		if (!player && media) {
 			player = await kazagumo.createPlayer({
 				guildId: interaction.guildId,
-				textId: process.env.TEST_CHANNEL,
-				voiceId: channelId,
+				textId: interaction.channelId,
+				voiceId: voiceChannelId,
 				volume: 100,
 			});
 		}
 
 		if (!media) return await interaction.reply('No parameters given');
-
-		const result = await kazagumo.search(media, { requester: 'tester' });
+		const result = await kazagumo.search(media, { requester: `${interaction.user.username}#${interaction.user.discriminator}` });
 		if (!result.tracks.length) return await interaction.reply("No results found!");
 
 		if (result.type === "PLAYLIST") {
