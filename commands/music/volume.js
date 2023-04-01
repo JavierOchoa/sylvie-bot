@@ -13,6 +13,7 @@ module.exports = {
 		const volumeLevel = interaction.options.getString('level');
 		if (isNaN(volumeLevel) || volumeLevel < 0 || volumeLevel > 100) return await interaction.reply('Please provide a valid volume level [0-100]');
 		const player = await kazagumo.getPlayer(interaction.guildId);
+		if (!player) return await interaction.reply('No active player');
 		player.setVolume(volumeLevel);
 		await interaction.reply(`Volume changed to ${volumeLevel}`);
 	},

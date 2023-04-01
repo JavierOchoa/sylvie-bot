@@ -5,12 +5,14 @@ specifiers:
   dotenv: ^16.0.3
   eslint: ^8.34.0
   kazagumo: ^2.3.2
+  kazagumo-spotify: ^1.2.0
   shoukaku: ^3.3.1
 
 dependencies:
   discord.js: 14.7.1
   dotenv: 16.0.3
   kazagumo: 2.3.2
+  kazagumo-spotify: 1.2.0
   shoukaku: 3.3.1
 
 devDependencies:
@@ -572,6 +574,17 @@ packages:
   /json-stable-stringify-without-jsonify/1.0.1:
     resolution: {integrity: sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==}
     dev: true
+
+  /kazagumo-spotify/1.2.0:
+    resolution: {integrity: sha512-+PBqh3nIhtGpx8/nLoM/Jw944CwSIhnqKm3JlYwKXxrJKCltoj7kS+DVloO2HfBaQwo3TSjjS/o9vqMB8NaOzA==}
+    dependencies:
+      kazagumo: 2.3.2
+      undici: 5.19.1
+    transitivePeerDependencies:
+      - bufferutil
+      - encoding
+      - utf-8-validate
+    dev: false
 
   /kazagumo/2.3.2:
     resolution: {integrity: sha512-yC+k+yuwj9jb9/c1Wc57wvrAKe8wvnlyLYzUWC5tYeWAt5xap4JKxjJugrG2Q/2xKCq3UoIzTQw7AdKaxWbOHw==}

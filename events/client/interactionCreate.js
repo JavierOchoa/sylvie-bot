@@ -2,6 +2,7 @@ const { Events } = require('discord.js');
 
 module.exports = {
 	name: Events.InteractionCreate,
+	type: 'client',
 	async execute(kazagumo, interaction) {
 		if (!interaction.isChatInputCommand()) return;
 

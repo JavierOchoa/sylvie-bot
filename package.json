@@ -15,6 +15,7 @@
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
     "kazagumo": "^2.3.2",
+    "kazagumo-spotify": "^1.2.0",
     "shoukaku": "^3.3.1"
   },
   "devDependencies": {

@@ -11,6 +11,7 @@ module.exports = {
 	async execute(interaction, kazagumo) {
 		const media = interaction.options.getString('params');
 		const voiceChannelId = await interaction.member.voice.channelId;
+		if (!voiceChannelId) return await interaction.reply('You need to be in a voice channel');
 		let player = await kazagumo.getPlayer(interaction.guildId);
 
 		if (player && player.paused) {
@@ -39,7 +40,10 @@ module.exports = {
 
 		if (!player.playing && !player.paused) player.play().catch(err => console.error(err));
 
-		await interaction.reply({ content: result.type === "PLAYLIST" ? `Queued ${result.tracks.length} from ${result.playlistName}` : `Queued ${result.tracks[0].title}` });
-
+		const message = await interaction.reply({
+			content: result.type === "PLAYLIST" ? `Playing **${result.tracks[0].title}** and ${result.tracks.length} more tracks from ${result.playlistName}` : `Playing **${result.tracks[0].title}** by **${result.tracks[0].author}**`,
+			fetchReply: true,
+		});
+		player.data.set('message', message);
 	},
 };
