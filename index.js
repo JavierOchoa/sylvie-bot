@@ -2,7 +2,7 @@ require('dotenv').config();
 const path = require('node:path');
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
 const { Connectors } = require('shoukaku');
-const { Kazagumo } = require('kazagumo');
+const Kazagumo = require('kazagumo');
 const Spotify = require('kazagumo-spotify');
 const { getAllJsFiles } = require("./helpers");
 const { NODE_NAME, NODE_URL, NODE_PORT, NODE_AUTH, SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET } = process.env;
@@ -15,7 +15,7 @@ const Nodes = [{
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.MessageContent] });
 
-const kazagumo = new Kazagumo({
+const kazagumo = new Kazagumo.Kazagumo({
 	defaultSearchEngine: "youtube",
 	plugins: [
 		new Spotify({
