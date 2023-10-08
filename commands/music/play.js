@@ -24,6 +24,7 @@ module.exports = {
 				textId: interaction.channelId,
 				voiceId: voiceChannelId,
 				volume: 100,
+				deaf: true,
 			});
 		}
 

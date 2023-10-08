@@ -3,3 +3,5 @@
 
 /lavalink-server
 .env
+
+.idea
